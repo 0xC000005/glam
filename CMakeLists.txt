@@ -28,6 +28,7 @@ add_definitions(-DBOOST_LOG_DYN_LINK)
 find_package(Boost 1.62.0 COMPONENTS
     graph
     program_options
+    thread
     REQUIRED)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
