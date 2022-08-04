@@ -45,6 +45,6 @@ endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-find_package(Boost REQUIRED COMPONENTS thread system PATHS "/opt/boost" NO_DEFAULT_PATH))
+find_package(Boost REQUIRED COMPONENTS thread system PATHS "/opt/boost" NO_DEFAULT_PATH)
 add_executable(glam src/main.cpp)
 target_link_libraries(glam ${Boost_LIBRARIES} ${TBB_LIBRARIES} ${OpenCL_LIBRARIES})
