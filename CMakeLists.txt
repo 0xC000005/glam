@@ -28,7 +28,9 @@ add_definitions(-DBOOST_LOG_DYN_LINK)
 find_package(Boost 1.62.0 COMPONENTS
     graph
     program_options
-    REQUIRED)
+    REQUIRED
+    PATHS /opt/boost 
+    NO_DEFAULT_PATH)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 else()
@@ -44,6 +46,6 @@ endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-find_package(Boost REQUIRED COMPONENTS thread system)
+find_package(Boost REQUIRED COMPONENTS thread system PATHS /opt/boost NO_DEFAULT_PATH)
 add_executable(glam src/main.cpp)
 target_link_libraries(glam ${Boost_LIBRARIES} ${TBB_LIBRARIES} ${OpenCL_LIBRARIES})
