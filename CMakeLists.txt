@@ -30,14 +30,15 @@ find_package(Boost 1.62.0 COMPONENTS
     program_options
     REQUIRED
     PATHS "/opt/boost" NO_DEFAULT_PATH)
+    
+if(POLICY CMP0057)
+cmake_policy(SET CMP0057 NEW)
+endif()
+
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
 else()
     message(FATAL_ERROR "Unable to find boost")
-endif()
-
-if(POLICY CMP0057)
-cmake_policy(SET CMP0057 NEW)
 endif()
 
 find_package(OpenCL)
