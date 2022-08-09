@@ -36,6 +36,10 @@ else()
     message(FATAL_ERROR "Unable to find boost")
 endif()
 
+if(POLICY CMP0057)
+cmake_policy(SET CMP0057 NEW)
+endif()
+
 find_package(OpenCL)
 if (OpenCL_FOUND)
     include_directories(${OpenCL_INCLUDE_DIRS})
